@@ -1,0 +1,580 @@
+<title>1989 Windows &amp; Doors</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..500,50&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Oswald:wght@300;400&display=swap">
+<style>
+/* Layout: Canva template sections (photo hero with stat boxes, split image/panel bands, card rows) in the template's navy and beige, soft serif headings over a clean grotesque body. */
+:root {
+  --bg: #f9f7f0;
+  --fg: #141a20;
+  --muted: #56606b;
+  --line: #e1dfd9;
+  --panel: #1a3950;
+  --panel-fg: #faf9f8;
+  --panel-muted: #c8d3dc;
+  --accent: #1a3950;
+  --accent-fg: #faf9f8;
+  --tint: #e6d9bf;
+  --soft: #f1eee4;
+  --quote-bg: #f4efe4;
+  --card: #ffffff;
+  --input-line: #d6d2c8;
+  --tan: #c6a575;
+  --tan-text: #7c5a2c;
+  --foot-bg: #11202f;
+  --logo: #1a3950;
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --max: 1200px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1a24; --fg: #f3f0e8; --muted: #a9b4be; --line: #26394a;
+    --panel: #1d4260; --panel-fg: #faf9f8; --panel-muted: #c8d3dc;
+    --accent: #e6d9bf; --accent-fg: #0e1a24; --tint: #e6d9bf; --soft: #12212e;
+    --quote-bg: #12212e; --card: #172a3b; --input-line: #33495d; --tan: #c6a575; --tan-text: #d9bd8f; --foot-bg: #0a141d; --logo: #e3dccf;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1a24; --fg: #f3f0e8; --muted: #a9b4be; --line: #26394a;
+  --panel: #1d4260; --panel-fg: #faf9f8; --panel-muted: #c8d3dc;
+  --accent: #e6d9bf; --accent-fg: #0e1a24; --tint: #e6d9bf; --soft: #12212e;
+  --quote-bg: #12212e; --card: #172a3b; --input-line: #33495d; --tan: #c6a575; --tan-text: #d9bd8f; --foot-bg: #0a141d; --logo: #e3dccf;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.65; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: var(--max); margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.h2 {
+  font-family: var(--serif); font-variation-settings: "SOFT" 50, "opsz" 96;
+  font-size: clamp(32px, 4.6vw, 52px); font-weight: 400; line-height: 1.1;
+  letter-spacing: -.005em; margin: 0; text-wrap: balance;
+}
+.rule { height: 1px; background: currentColor; opacity: .55; margin-block: 24px 32px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.lead { max-width: 62ch; margin: 0; }
+.btn {
+  display: inline-block; padding: 14px 28px; font-weight: 500; font-size: 16px;
+  text-decoration: none; background: transparent; color: var(--panel-fg);
+  border: 1px solid var(--panel-fg); transition: background .2s, color .2s;
+}
+.btn:hover { background: var(--panel-fg); color: var(--panel); }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.logo { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.logo { color: var(--logo); }
+/* Logo: the client's artwork used as a mask, so it takes the surrounding text colour in both themes. */
+.logo-img {
+  display: inline-block; flex: none; aspect-ratio: 870 / 385; max-width: 100%; background: currentColor;
+  -webkit-mask: url("img/logo.png") center / contain no-repeat; mask: url("img/logo.png") center / contain no-repeat;
+}
+.logo .logo-img { width: 132px; }
+.foot-logo { margin: 0 0 22px; color: #e3dccf; line-height: 0; }
+.foot-logo .logo-img { width: 240px; }
+.foot-copy { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.foot-copy .logo-img { width: 84px; color: #e3dccf; }
+.nav { display: flex; gap: clamp(14px, 2.4vw, 32px); flex-wrap: wrap; }
+.nav a { font-size: 16px; font-weight: 400; text-decoration: none; padding-block: 4px; border-bottom: 1px solid transparent; color: var(--muted); }
+.nav a:hover { border-color: var(--accent); color: var(--fg); }
+
+/* 1. Hero / Why work with us */
+.hero {
+  position: relative; color: #fff;
+  background: linear-gradient(180deg, rgba(20,32,46,.62), rgba(14,22,32,.9)), url("img/hero.jpg") center 30% / cover no-repeat;
+}
+.hero .wrap { padding-block: clamp(64px, 10vw, 120px) clamp(56px, 8vw, 96px); }
+.hero .eyebrow { color: #e6d9bf; }
+.hero .h2 { font-size: clamp(36px, 5.6vw, 64px); max-width: 18ch; }
+.hero .lead { color: #e9edf1; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 2.4vw, 32px); margin-top: 44px; }
+.stat { border: 1px solid rgba(250,249,248,.75); padding: 34px 18px; text-align: center; background: rgba(20,32,46,.18); }
+.stat strong { display: block; font-family: var(--serif); font-variation-settings: "SOFT" 50, "opsz" 72; font-size: clamp(30px, 3.6vw, 42px); font-weight: 400; line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+.stat span { display: block; margin-top: 14px; font-size: 15px; line-height: 1.45; color: #eef1f4; }
+
+/* Split bands (Who we are / Feature / Contact) */
+.split { display: grid; grid-template-columns: 5fr 7fr; background: var(--panel); color: var(--panel-fg); }
+.split.reverse { grid-template-columns: 7fr 5fr; }
+.split.reverse .split-media { order: 2; }
+.split-media { min-height: 360px; background-size: cover; background-position: center; }
+.split-body {
+  padding-block: clamp(48px, 8vw, 104px);
+  padding-left: max(24px, min(7vw, 96px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px), min(7vw, 96px));
+  min-width: 0;
+}
+.split-body .lead { color: var(--panel-muted); }
+.split .rule { color: var(--panel-fg); }
+
+.learn { margin-top: 48px; }
+.learn h3 { font-family: var(--serif); font-size: 30px; font-weight: 400; text-align: center; margin: 0 0 26px; }
+.learn-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.learn-links a { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; text-decoration: underline; text-underline-offset: 4px; font-size: 16px; }
+.learn-links a:hover .ico { background: var(--panel-fg); color: var(--panel); }
+.ico { width: 76px; height: 76px; border: 1px solid var(--panel-fg); border-radius: 50%; display: grid; place-items: center; transition: background .2s, border-color .2s; }
+.ico svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+
+/* Light sections */
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section.soft { background: var(--soft); }
+.section .rule { color: var(--fg); }
+
+/* 3. Products */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+.card { display: flex; flex-direction: column; background: var(--panel); color: var(--panel-fg); }
+.card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.card-body { padding: 26px 26px 30px; display: grid; gap: 6px; flex: 1; align-content: start; }
+.card-body b { font-size: 16px; font-weight: 700; }
+.card-body h3 { font-size: 19px; font-weight: 400; margin: 0 0 8px; line-height: 1.35; }
+.card-body p { margin: 0; color: var(--panel-muted); font-size: 15px; }
+
+/* What we do */
+.services { background: var(--quote-bg); }
+.services-lead { margin-top: 22px; color: var(--muted); font-size: 18px; }
+.svc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.2vw, 28px); margin-top: 48px; }
+.svc-card { display: flex; flex-direction: column; background: var(--card); border-radius: 12px; overflow: hidden; }
+.svc-title { font-family: var(--font); font-variation-settings: normal; font-weight: 800; letter-spacing: -.035em; color: var(--logo); }
+.svc-card img { width: 100%; aspect-ratio: 598 / 324; object-fit: cover; }
+.svc-body { display: flex; flex-direction: column; gap: 12px; padding: 30px 38px 36px; flex: 1; }
+.svc-body h3 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -.03em; line-height: 1.2; color: var(--logo); }
+.svc-body p { margin: 0; color: var(--muted); }
+.svc-body a { margin-top: auto; padding-top: 12px; text-decoration: none; font-weight: 500; }
+.svc-body a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Wazzor */
+.wz-head { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 48px; align-items: end; margin-bottom: 32px; }
+.wz-head > * { min-width: 0; }
+.wz-lead { color: var(--muted); }
+.wz-grid { display: grid; grid-template-columns: 7fr 4fr; gap: 32px; align-items: start; }
+.wz-grid > * { min-width: 0; }
+.wz-diagrams { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.wz-diagrams figure { margin: 0; display: grid; gap: 10px; align-content: start; }
+.wz-diagrams img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; background: #0b0b0c; }
+.wz-diagrams figcaption { font-size: 14px; line-height: 1.45; color: var(--muted); }
+.wz-diagrams figcaption b { display: block; color: var(--fg); font-size: 15px; }
+.wz-photo { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; }
+.wz-models { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+.wz-models th, .wz-models td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+.wz-models thead th { background: var(--panel); color: var(--panel-fg); font-weight: 600; font-size: 13px; }
+.wz-models td:first-child { font-weight: 600; white-space: nowrap; }
+.wz-models td { color: var(--muted); }
+.wz-models td:first-child { color: var(--fg); }
+
+/* 4. System range table */
+section[id] { scroll-margin-top: 84px; }
+.range { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin: 0; padding: 0; list-style: none; }
+.range li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.range li span:first-child { font-weight: 600; }
+.range li span:last-child { color: var(--muted); white-space: nowrap; }
+
+/* 6. Pillars */
+.pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); }
+.pillar { display: flex; flex-direction: column; border: 1px solid var(--line); background: var(--bg); }
+.pillar ul { margin: 0; padding: 26px 22px 30px 40px; flex: 1; display: grid; gap: 8px; align-content: start; font-size: 14px; color: var(--muted); }
+.pillar h3 { margin: 0; padding: 18px 22px; background: var(--panel); color: var(--panel-fg); font-size: 16px; font-weight: 700; line-height: 1.35; }
+.pillar h3 small { display: block; font-weight: 400; color: var(--panel-muted); font-size: 14px; margin-top: 2px; }
+
+.limits-wrap { overflow-x: auto; margin-top: 44px; }
+.limits { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; font-variant-numeric: tabular-nums; }
+.limits caption { text-align: left; font-family: var(--serif); font-size: 24px; font-weight: 400; padding-bottom: 14px; }
+.limits th, .limits td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.limits thead th { background: var(--panel); color: var(--panel-fg); font-size: 14px; font-weight: 600; }
+.note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* 7. Contact / quote */
+.quote { background: var(--quote-bg); }
+.quote-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.quote-intro { min-width: 0; padding-top: 8px; }
+.quote-intro .lead { margin-top: 24px; color: var(--muted); font-size: 18px; }
+.quote-eyebrow { color: var(--tan-text); letter-spacing: .2em; }
+.quote-card {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 22px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: clamp(22px, 3vw, 40px); min-width: 0;
+}
+.field { display: grid; gap: 8px; min-width: 0; }
+.field.wide, .form-foot.wide { grid-column: 1 / -1; }
+.field label { font-size: 15px; font-weight: 500; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--fg); background: var(--card);
+  border: 1px solid var(--input-line); border-radius: 6px; padding: 12px 14px;
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 4px; }
+.btn-tan {
+  font: inherit; font-size: 16px; font-weight: 500; cursor: pointer;
+  background: var(--tan); color: #13202d; border: 0; border-radius: 6px; padding: 15px 30px;
+  transition: filter .2s;
+}
+.btn-tan:hover { filter: brightness(.94); }
+.btn-tan:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.form-status { margin: 0; font-size: 14px; color: var(--muted); flex: 1 1 220px; }
+.ph { color: var(--tint); font-style: normal; }
+
+.site-footer { background: var(--foot-bg); color: #f3f1ec; }
+.site-footer .wrap { padding-block: clamp(48px, 7vw, 80px) 28px; }
+.foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.foot-h { font-size: 22px; font-weight: 700; margin: 0 0 18px; }
+.foot-text { margin: 0; max-width: 34ch; color: #d5dbe1; }
+.foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; color: #d5dbe1; }
+.foot-links a { text-decoration: none; }
+.foot-links a:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 4px; }
+.foot-copy { margin: 44px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); font-size: 14px; color: #c3cad1; }
+
+@media (max-width: 900px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split, .split.reverse { grid-template-columns: 1fr; }
+  .split.reverse .split-media { order: 0; }
+  .split-media { min-height: 280px; }
+  .split-body { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .cards, .svc-cards { grid-template-columns: 1fr; }
+  .wz-head, .wz-grid { grid-template-columns: 1fr; }
+  .wz-diagrams { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .range { grid-template-columns: 1fr; }
+  .quote-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .quote-card { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .pillars { grid-template-columns: 1fr; }
+  .learn-links { gap: 8px; }
+  .ico { width: 64px; height: 64px; }
+  .nav { width: 100%; justify-content: space-between; }
+}
+</style>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="1989 Windows and Doors, back to top"><span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#why-section">About</a>
+      <a href="#products">Products</a>
+      <a href="#eiffel">Eiffel Series</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Why work with us -->
+  <section class="hero" id="why-section" aria-labelledby="why">
+    <div class="wrap">
+      <p class="eyebrow">Architectural aluminium systems</p>
+      <h1 class="h2" id="why">Why work with us</h1>
+      <div class="rule"></div>
+      <p class="lead">Curtain walls, French-style windows and doors, and cast-aluminium entry doors, engineered for thermal performance and supported from design through installation.</p>
+      <div class="stats">
+        <div class="stat"><strong>15</strong><span>Curtain wall, window and door systems</span></div>
+        <div class="stat"><strong>44mm</strong><span>Ultra-wide thermal insulation strip</span></div>
+        <div class="stat"><strong>1.8mm</strong><span>Profile wall thickness</span></div>
+        <div class="stat"><strong>Global</strong><span>Overseas installation and technical support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we are -->
+  <section class="split" id="about" aria-labelledby="who">
+    <div class="split-media" style="background-image:url('img/about-wazzor.jpg'); background-position: 32% center" role="img" aria-label="Olive tree in a white courtyard beside a floor-to-ceiling glass wall"></div>
+    <div class="split-body">
+      <h2 class="h2" id="who">Who we are</h2>
+      <div class="rule"></div>
+      <p class="lead">1989 Windows and Doors supplies aluminium building envelope systems for commercial and residential projects. Our range covers unitised and stick curtain walls from 35mm to 200mm series, the Eiffel collection of French windows and doors, and a 2025 line of system entry doors. Every system uses thermal breaks, visible drainage and premium hardware, and our team provides overseas installation and technical support.</p>
+      <div class="learn">
+        <h3>Learn more</h3>
+        <div class="learn-links">
+          <a href="#system-range"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="20" height="26"/><path d="M6 11h20M6 19h20M13 3v26M19 3v26"/></svg></span>Curtain walls</a>
+          <a href="#eiffel"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 29V14a9 9 0 0 1 18 0v15z"/><path d="M16 5v24M7 18h18"/></svg></span>French windows</a>
+          <a href="#m-25001"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="3" width="16" height="26"/><path d="M20 10v12"/></svg></span>Entry doors</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section class="section services" id="services" aria-labelledby="svc">
+    <div class="wrap">
+      <p class="eyebrow quote-eyebrow">What we do</p>
+      <h2 class="h2 svc-title" id="svc">Windows Made for the Way You Live</h2>
+      <p class="lead services-lead">From a single-room refresh to a complete exterior update, find the right fit for your space and your everyday life.</p>
+      <div class="svc-cards">
+        <article class="svc-card">
+          <img src="img/wwd-1.jpg" alt="Installers fitting a large replacement window from inside a room" loading="lazy">
+          <div class="svc-body">
+            <h3>Replacement Windows</h3>
+            <p>Refresh your rooms with well-fitted windows designed for natural light, easy upkeep, and everyday comfort.</p>
+            <a href="#contact">Ask about replacement windows <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="svc-card">
+          <img src="img/wwd-2.jpg" alt="Lounge with floor-to-ceiling glazing between timber screens, looking onto trees" loading="lazy">
+          <div class="svc-body">
+            <h3>Custom Designs</h3>
+            <p>Make room for your vision with window shapes, proportions, and finishes chosen to complement your home.</p>
+            <a href="#contact">Discuss a custom design <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="svc-card">
+          <img src="img/wwd-3.jpg" alt="Corridor with black-framed glass sliding doors around a planted indoor courtyard" loading="lazy">
+          <div class="svc-body">
+            <h3>Patio &amp; Entry Doors</h3>
+            <p>Connect indoors and out with welcoming doors that balance beautiful design and practical performance.</p>
+            <a href="#doors">Explore door options <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section" id="products" aria-labelledby="prod">
+    <div class="wrap">
+      <h2 class="h2" id="prod">Products</h2>
+      <div class="rule"></div>
+      <div class="cards">
+        <article class="card">
+          <img src="img/curtain-wall.jpg" alt="Glass curtain wall towers seen from below" loading="lazy">
+          <div class="card-body">
+            <b>Curtain wall</b>
+            <h3>Full-frame, hidden-frame and thermal-break systems</h3>
+            <p>35mm to 200mm series, plus 140×65mm and 140×80mm steelwork</p>
+            <p>Point-fixed and full-glass options</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="img/french-window.jpg" alt="Black arched French windows in a wood-panelled room" loading="lazy">
+          <div class="card-body">
+            <b>Windows and doors</b>
+            <h3>Eiffel Collection French system</h3>
+            <p>80mm, 100mm and 125mm frame depths</p>
+            <p>Inward, outward, double-leaf and integrated screen</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="img/entry-door.jpg" alt="Dark grey aluminium entry door with full-height handle and glass sidelight" loading="lazy">
+          <div class="card-body">
+            <b>Entry doors</b>
+            <h3>2025 system entrance door collection</h3>
+            <p>Pivot and hinged, single and double leaf</p>
+            <p>Modern, Chinese and French styles</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wazzor system -->
+  <section class="section soft" id="wazzor" aria-labelledby="wz-h">
+    <div class="wrap">
+      <div class="wz-head">
+        <div>
+          <p class="eyebrow">Wazzor system windows and doors</p>
+          <h2 class="h2" id="wz-h">Engineered in Every Detail</h2>
+        </div>
+        <p class="lead wz-lead">6060-T6 European-standard aluminium profiles and 20 production processes, built around five systems: aesthetics, sound insulation, energy saving, waterproofing and security.</p>
+      </div>
+      <div class="wz-grid">
+        <div class="wz-diagrams">
+          <figure><img src="img/wz-profile.jpg" alt="Cutaway of two aluminium window profile corners with double glazing" loading="lazy"><figcaption><b>T6 profile</b>Multi-chamber thermal break, 1.8–3.5mm walls.</figcaption></figure>
+          <figure><img src="img/wz-hinge.jpg" alt="Steel outward-opening friction hinge mounted in a window frame" loading="lazy"><figcaption><b>80 kg hinge</b>Patented outward-opening hinge, safe-angle or full opening.</figcaption></figure>
+          <figure><img src="img/wz-glass.jpg" alt="Section of a double-glazed unit with warm-edge spacer" loading="lazy"><figcaption><b>Low-E + TPE glass</b>6 + 15Ar + 6mm, warm-edge seal against condensation.</figcaption></figure>
+          <figure><img src="img/wz-drainage.jpg" alt="Sill profile section with concealed drainage path" loading="lazy"><figcaption><b>Hidden drainage</b>Patented vertical, anti-backflow, no drain holes outside.</figcaption></figure>
+          <figure><img src="img/wz-corner.jpg" alt="Frame corner showing injected adhesive around the corner key" loading="lazy"><figcaption><b>Glue-injected corners</b>Corner keys, pins and two-part adhesive.</figcaption></figure>
+          <figure><img src="img/wz-seal.jpg" alt="Exploded profile with three orange co-extruded rubber seals" loading="lazy"><figcaption><b>Three seals</b>Continuous co-extruded rubber, no gaps around the sash.</figcaption></figure>
+        </div>
+        <div class="wz-side">
+          <img class="wz-photo" src="img/wz-window.jpg" alt="Living room with a large dark-framed window and integrated screen" loading="lazy">
+          <table class="wz-models">
+            <thead><tr><th scope="col">Model</th><th scope="col">Type</th><th scope="col">Key spec</th></tr></thead>
+            <tbody>
+              <tr><td>WAZ 102 IPW</td><td>Passive window</td><td>K 0.8, triple glazed</td></tr>
+              <tr><td>WAZ 77 IW</td><td>Tilt and turn</td><td>K 1.4, 39mm strip</td></tr>
+              <tr><td>WAZ 65 HS</td><td>Hidden sash</td><td>K 1.8</td></tr>
+              <tr><td>WAZ 103 OWS</td><td>Out-opening + screen</td><td>K 1.9, 80 kg sash</td></tr>
+              <tr><td>WAZ 48 SW</td><td>Sliding window</td><td>K 2.2, 120 kg sash</td></tr>
+              <tr><td>WAZ 103 HUW</td><td>Electric exterior-hung</td><td>6 × 1.5 m, 450 kg</td></tr>
+              <tr><td>WAZ 110 RSD</td><td>Electric pivot door</td><td>500 kg leaf</td></tr>
+            </tbody>
+          </table>
+          <p class="note">K in W/(m²·K). All window models rated wind pressure level 9 and watertightness level 6.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: custom entry doors -->
+  <section class="split reverse" id="doors" aria-labelledby="custom">
+    <div class="split-media" style="background-image:url('img/pivot-door.jpg')" role="img" aria-label="Black pivot entry door, model M-25001, opening into a living room"></div>
+    <div class="split-body">
+      <p class="eyebrow" id="m-25001" style="color:var(--tint); scroll-margin-top: 120px">Model M-25001</p>
+      <h2 class="h2" id="custom">Custom entry doors</h2>
+      <div class="rule"></div>
+      <p class="lead">Each entry door is made to its opening. Choose a pivot or hinged leaf, a solid or glazed panel, and finishes from brushed metal to stone and wood textures. Doors can take integrated smart locks, full-height pull handles and concealed LED handle lighting.</p>
+      <p style="margin-top:32px"><a class="btn" href="#contact">Request a Quote</a></p>
+    </div>
+  </section>
+
+  <!-- System range -->
+  <section class="section soft" id="system-range" aria-labelledby="range">
+    <div class="wrap">
+      <p class="eyebrow">Curtain walls</p>
+      <h2 class="h2" id="range">System range</h2>
+      <div class="rule"></div>
+      <ul class="range">
+        <li><span>Full-frame aluminium glass curtain wall</span><span>80–200×65mm</span></li>
+        <li><span>Hidden-frame aluminium glass curtain wall</span><span>65–200×65mm</span></li>
+        <li><span>Half-hidden-frame aluminium glass curtain wall</span><span>80–200×65mm</span></li>
+        <li><span>Thermal-break full-frame curtain wall</span><span>100–200×65mm</span></li>
+        <li><span>Minimalism hidden-frame curtain wall</span><span>35mm</span></li>
+        <li><span>Minimalism thermal-break full-frame curtain wall</span><span>35mm</span></li>
+        <li><span>Thermal-break full-frame curtain wall</span><span>50mm</span></li>
+        <li><span>Steelwork glass curtain wall</span><span>140×65mm</span></li>
+        <li><span>Steelwork glass curtain wall</span><span>140×80mm</span></li>
+        <li><span>Aluminium casement window and door</span><span>50mm series</span></li>
+        <li><span>Thermal-break aluminium casement window and door</span><span>55mm series</span></li>
+        <li><span>Aluminium floor spring door</span><span>46mm series</span></li>
+        <li><span>Glass louvres</span><span>100mm</span></li>
+        <li><span>Point-fixed glass curtain wall</span><span>Spider fitting</span></li>
+        <li><span>Full glass curtain wall</span><span>Glass fin</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Eiffel pillars -->
+  <section class="section" id="eiffel" aria-labelledby="eif">
+    <div class="wrap">
+      <p class="eyebrow">Eiffel Collection</p>
+      <h2 class="h2" id="eif">Four core pillars</h2>
+      <div class="rule"></div>
+      <div class="pillars">
+        <article class="pillar">
+          <ul><li>Classic bevelled profile lines</li><li>Visible drainage system</li><li>Elegance balanced with everyday use</li></ul>
+          <h3>French contours<small>The beauty of lines</small></h3>
+        </article>
+        <article class="pillar">
+          <ul><li>Deep glass seating, over 12mm</li><li>Independent thermal insulation system</li><li>Year-round indoor comfort</li></ul>
+          <h3>French protection<small>A sanctuary of peace</small></h3>
+        </article>
+        <article class="pillar">
+          <ul><li>1.8mm profile wall thickness</li><li>Seamlessly welded indoor glazing beads</li><li>Continuous bending for clean corners</li></ul>
+          <h3>French ingenuity<small>The rhythm of craft</small></h3>
+        </article>
+        <article class="pillar">
+          <ul><li>Grilles made with composite assembly</li><li>Triangular, flat and large grille styles</li><li>A complete series for the whole home</li></ul>
+          <h3>French life<small>The ideal choice</small></h3>
+        </article>
+      </div>
+
+      <div class="limits-wrap">
+        <table class="limits">
+          <caption>Opening size limits</caption>
+          <thead><tr><th scope="col">Product</th><th scope="col">Width</th><th scope="col">Height</th></tr></thead>
+          <tbody>
+            <tr><td>Window opening sash</td><td>450–750mm</td><td>700–1500mm</td></tr>
+            <tr><td>Door, 3 hinges</td><td>500–900mm</td><td>1200–2400mm</td></tr>
+            <tr><td>Door, 4 hinges</td><td>500–900mm</td><td>2400–3000mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Subject to final data from the technical department.</p>
+    </div>
+  </section>
+
+  <!-- Contact / quote -->
+  <section class="section quote" id="contact" aria-labelledby="con">
+    <div class="wrap quote-grid">
+      <div class="quote-intro">
+        <p class="eyebrow quote-eyebrow">Let’s get started</p>
+        <h2 class="h2" id="con">Ready for a Brighter Home?</h2>
+        <p class="lead">Tell us a little about your project. Share what you have in mind, and we’ll be in touch to discuss the next steps.</p>
+      </div>
+      <form class="quote-card" id="quote-form" novalidate>
+        <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="q-type">Project Type</label>
+          <select id="q-type" name="type">
+            <option value="">Select a project</option>
+            <option>Curtain wall</option>
+            <option>French windows</option>
+            <option>French doors</option>
+            <option>Entry door</option>
+            <option>Casement windows and doors</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field wide"><label for="q-message">Message</label><textarea id="q-message" name="message" rows="6"></textarea></div>
+        <div class="wide form-foot">
+          <button type="submit" class="btn-tan">Request My Quote</button>
+          <p class="form-status" id="q-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2 class="foot-logo"><span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></h2>
+        <p class="foot-text">Curtain walls, windows and doors engineered for thermal comfort, lasting performance and buildings that feel like yours.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2 class="foot-h">Explore</h2>
+        <ul class="foot-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#eiffel">Eiffel Series</a></li>
+          <li><a href="#why-section">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="foot-h">Get in touch</h2>
+        <ul class="foot-links foot-contact">
+          <li>Phone: <em class="ph">[Add phone number]</em></li>
+          <li>Email: <em class="ph">[Add email address]</em></li>
+          <li><em class="ph">[Add service area]</em></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-copy">© 2026 <span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('quote-form');
+  var status = document.getElementById('q-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('q-name');
+    var email = document.getElementById('q-email');
+    if (!name.value.trim()) { status.textContent = 'Enter your name.'; name.focus(); return; }
+    if (!email.value.trim() || !email.checkValidity()) { status.textContent = 'Enter a valid email address.'; email.focus(); return; }
+    status.textContent = 'This preview form does not send requests yet. Once the site is live, quote requests will go to the team.';
+  });
+})();
+</script>
