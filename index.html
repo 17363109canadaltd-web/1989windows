@@ -99,6 +99,8 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .nav { display: flex; gap: clamp(14px, 2.4vw, 32px); flex-wrap: wrap; }
 .nav a { font-size: 16px; font-weight: 400; text-decoration: none; padding-block: 4px; border-bottom: 1px solid transparent; color: var(--muted); }
 .nav a:hover { border-color: var(--accent); color: var(--fg); }
+.nav a[aria-current="page"] { border-color: var(--accent); color: var(--fg); }
+html.paged main > section[data-page]:not(.is-active) { display: none; }
 
 /* 1. Hero / Why work with us */
 .hero {
@@ -274,19 +276,19 @@ section[id] { scroll-margin-top: 84px; }
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="1989 Windows and Doors, back to top"><span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></a>
+    <a class="logo" href="#top" data-tab="home" aria-label="1989 Windows and Doors, home"><span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></a>
     <nav class="nav" aria-label="Main">
-      <a href="#why-section">About</a>
-      <a href="#products">Products</a>
-      <a href="#eiffel">Eiffel Series</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-tab="about">About</a>
+      <a href="#products" data-tab="products">Products</a>
+      <a href="#eiffel" data-tab="eiffel">Eiffel Series</a>
+      <a href="#contact" data-tab="contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <!-- Why work with us -->
-  <section class="hero" id="why-section" aria-labelledby="why">
+  <section data-page="home" class="hero" id="why-section" aria-labelledby="why">
     <div class="wrap">
       <p class="eyebrow">Architectural aluminium systems</p>
       <h1 class="h2" id="why">Why work with us</h1>
@@ -302,7 +304,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Who we are -->
-  <section class="split" id="about" aria-labelledby="who">
+  <section data-page="about" class="split" id="about" aria-labelledby="who">
     <div class="split-media" style="background-image:url('img/about-wazzor.jpg'); background-position: 32% center" role="img" aria-label="Olive tree in a white courtyard beside a floor-to-ceiling glass wall"></div>
     <div class="split-body">
       <h2 class="h2" id="who">Who we are</h2>
@@ -320,7 +322,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- What we do -->
-  <section class="section services" id="services" aria-labelledby="svc">
+  <section data-page="about" class="section services" id="services" aria-labelledby="svc">
     <div class="wrap">
       <p class="eyebrow quote-eyebrow">What we do</p>
       <h2 class="h2 svc-title" id="svc">Windows Made for the Way You Live</h2>
@@ -355,7 +357,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Products -->
-  <section class="section" id="products" aria-labelledby="prod">
+  <section data-page="products" class="section" id="products" aria-labelledby="prod">
     <div class="wrap">
       <h2 class="h2" id="prod">Products</h2>
       <div class="rule"></div>
@@ -392,7 +394,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Wazzor system -->
-  <section class="section soft" id="wazzor" aria-labelledby="wz-h">
+  <section data-page="products" class="section soft" id="wazzor" aria-labelledby="wz-h">
     <div class="wrap">
       <div class="wz-head">
         <div>
@@ -431,7 +433,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Feature: custom entry doors -->
-  <section class="split reverse" id="doors" aria-labelledby="custom">
+  <section data-page="products" class="split reverse" id="doors" aria-labelledby="custom">
     <div class="split-media" style="background-image:url('img/pivot-door.jpg')" role="img" aria-label="Black pivot entry door, model M-25001, opening into a living room"></div>
     <div class="split-body">
       <p class="eyebrow" id="m-25001" style="color:var(--tint); scroll-margin-top: 120px">Model M-25001</p>
@@ -443,7 +445,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- System range -->
-  <section class="section soft" id="system-range" aria-labelledby="range">
+  <section data-page="products" class="section soft" id="system-range" aria-labelledby="range">
     <div class="wrap">
       <p class="eyebrow">Curtain walls</p>
       <h2 class="h2" id="range">System range</h2>
@@ -469,7 +471,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Eiffel pillars -->
-  <section class="section" id="eiffel" aria-labelledby="eif">
+  <section data-page="eiffel" class="section" id="eiffel" aria-labelledby="eif">
     <div class="wrap">
       <p class="eyebrow">Eiffel Collection</p>
       <h2 class="h2" id="eif">Four core pillars</h2>
@@ -509,7 +511,7 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Contact / quote -->
-  <section class="section quote" id="contact" aria-labelledby="con">
+  <section data-page="contact" class="section quote" id="contact" aria-labelledby="con">
     <div class="wrap quote-grid">
       <div class="quote-intro">
         <p class="eyebrow quote-eyebrow">Let’s get started</p>
@@ -554,7 +556,7 @@ section[id] { scroll-margin-top: 84px; }
           <li><a href="#top">Home</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#eiffel">Eiffel Series</a></li>
-          <li><a href="#why-section">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -583,6 +585,36 @@ section[id] { scroll-margin-top: 84px; }
     if (!email.value.trim() || !email.checkValidity()) { status.textContent = 'Enter a valid email address.'; email.focus(); return; }
     status.textContent = 'This preview form does not send requests yet. Once the site is live, quote requests will go to the team.';
   });
+})();
+</script>
+<script>
+/* Show one page at a time: the hash picks a section, and its data-page group is shown. */
+(function () {
+  var root = document.documentElement;
+  var sections = document.querySelectorAll('main > section[data-page]');
+  var tabs = document.querySelectorAll('[data-tab]');
+  root.classList.add('paged');
+  function show() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var target = id ? document.getElementById(id) : null;
+    var holder = target && target.closest('section[data-page]');
+    var page = holder ? holder.getAttribute('data-page') : 'home';
+    sections.forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-page') === page); });
+    tabs.forEach(function (t) {
+      if (t.getAttribute('data-tab') === page) t.setAttribute('aria-current', 'page');
+      else t.removeAttribute('aria-current');
+    });
+    var first = document.querySelector('main > section[data-page="' + page + '"]');
+    setTimeout(function () {
+      if (target && holder && target !== first) {
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }, 0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
 })();
 </script>
 </body>
