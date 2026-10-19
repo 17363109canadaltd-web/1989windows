@@ -165,7 +165,7 @@ html.paged main > section[data-page]:not(.is-active) { display: none; }
 .svc-body a { margin-top: auto; padding-top: 12px; text-decoration: none; font-weight: 500; }
 .svc-body a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-/* Wazzor */
+/* System windows */
 .wz-head { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 48px; align-items: end; margin-bottom: 32px; }
 .wz-head > * { min-width: 0; }
 .wz-lead { color: var(--muted); }
@@ -270,6 +270,51 @@ section[id] { scroll-margin-top: 84px; }
   .ico { width: 64px; height: 64px; }
   .nav { width: 100%; justify-content: space-between; }
 }
+/* Product pages */
+a.card { text-decoration: none; color: var(--panel-fg); transition: transform .2s, box-shadow .2s; }
+a.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(17,32,47,.2); }
+.card-more { margin-top: 12px; font-size: 15px; font-weight: 600; color: var(--tint); }
+a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px; }
+.back { display: inline-block; margin-bottom: 20px; font-size: 15px; text-decoration: none; opacity: .85; }
+.back:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+.btn.dark { color: var(--fg); border-color: var(--fg); }
+.btn.dark:hover { background: var(--fg); color: var(--bg); }
+.sys-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); }
+.sys { display: grid; gap: 10px; align-content: start; min-width: 0; background: var(--card); border: 1px solid var(--line); padding: 26px 24px 28px; }
+.sys .size { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tan-text); }
+.sys h3 { margin: 0; font-size: 19px; line-height: 1.3; }
+.sys p { margin: 0; color: var(--muted); font-size: 15px; }
+.sys ul { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); font-size: 14px; }
+.models { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.model { display: flex; flex-direction: column; min-width: 0; background: var(--card); border: 1px solid var(--line); }
+.model img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.model-body { display: grid; gap: 8px; align-content: start; padding: 22px 24px 26px; }
+.model-body h3 { margin: 0; font-size: 20px; line-height: 1.3; }
+.model-body .tag { margin: 0; color: var(--tan-text); font-style: italic; }
+.model-body ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); font-size: 14px; }
+.layers { display: grid; grid-template-columns: 6fr 5fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.layers > * { min-width: 0; }
+.layers img { width: 100%; }
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; counter-reset: pt; }
+.points li { counter-increment: pt; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+.points li::before { content: counter(pt); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--panel); color: var(--panel-fg); font-size: 14px; font-weight: 700; }
+.points b { display: block; margin-bottom: 2px; }
+.points span { color: var(--muted); font-size: 15px; }
+.door-gallery { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.door-gallery figure { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.door-gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #e9e7e1; }
+.door-gallery figcaption { font-size: 14px; color: var(--muted); }
+.door-gallery figcaption b { display: block; color: var(--fg); }
+
+@media (max-width: 900px) {
+  .sys-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .models, .layers { grid-template-columns: 1fr; }
+  .door-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .sys-grid { grid-template-columns: 1fr; }
+  .door-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 </style>
 </head>
 <body>
@@ -305,7 +350,7 @@ section[id] { scroll-margin-top: 84px; }
 
   <!-- Who we are -->
   <section data-page="about" class="split" id="about" aria-labelledby="who">
-    <div class="split-media" style="background-image:url('img/about-wazzor.jpg'); background-position: 32% center" role="img" aria-label="Olive tree in a white courtyard beside a floor-to-ceiling glass wall"></div>
+    <div class="split-media" style="background-image:url('img/about-glass.jpg'); background-position: 32% center" role="img" aria-label="Olive tree in a white courtyard beside a floor-to-ceiling glass wall"></div>
     <div class="split-body">
       <h2 class="h2" id="who">Who we are</h2>
       <div class="rule"></div>
@@ -313,7 +358,7 @@ section[id] { scroll-margin-top: 84px; }
       <div class="learn">
         <h3>Learn more</h3>
         <div class="learn-links">
-          <a href="#system-range"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="20" height="26"/><path d="M6 11h20M6 19h20M13 3v26M19 3v26"/></svg></span>Curtain walls</a>
+          <a href="#curtain-wall"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="3" width="20" height="26"/><path d="M6 11h20M6 19h20M13 3v26M19 3v26"/></svg></span>Curtain walls</a>
           <a href="#eiffel"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 29V14a9 9 0 0 1 18 0v15z"/><path d="M16 5v24M7 18h18"/></svg></span>French windows</a>
           <a href="#m-25001"><span class="ico"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="8" y="3" width="16" height="26"/><path d="M20 10v12"/></svg></span>Entry doors</a>
         </div>
@@ -349,7 +394,7 @@ section[id] { scroll-margin-top: 84px; }
           <div class="svc-body">
             <h3>Patio &amp; Entry Doors</h3>
             <p>Connect indoors and out with welcoming doors that balance beautiful design and practical performance.</p>
-            <a href="#doors">Explore door options <span aria-hidden="true">→</span></a>
+            <a href="#entry-doors">Explore door options <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -362,43 +407,137 @@ section[id] { scroll-margin-top: 84px; }
       <h2 class="h2" id="prod">Products</h2>
       <div class="rule"></div>
       <div class="cards">
-        <article class="card">
+        <a class="card" href="#curtain-wall">
           <img src="img/curtain-wall.jpg" alt="Glass curtain wall towers seen from below" loading="lazy">
           <div class="card-body">
             <b>Curtain wall</b>
             <h3>Full-frame, hidden-frame and thermal-break systems</h3>
-            <p>35mm to 200mm series, plus 140×65mm and 140×80mm steelwork</p>
-            <p>Point-fixed and full-glass options</p>
+            <span class="card-more">View curtain walls <span aria-hidden="true">&rarr;</span></span>
           </div>
-        </article>
-        <article class="card">
+        </a>
+        <a class="card" href="#windows-doors">
           <img src="img/french-window.jpg" alt="Black arched French windows in a wood-panelled room" loading="lazy">
           <div class="card-body">
             <b>Windows and doors</b>
-            <h3>Eiffel Collection French system</h3>
-            <p>80mm, 100mm and 125mm frame depths</p>
-            <p>Inward, outward, double-leaf and integrated screen</p>
+            <h3>Eiffel Collection French system and engineered system windows</h3>
+            <span class="card-more">View windows and doors <span aria-hidden="true">&rarr;</span></span>
           </div>
-        </article>
-        <article class="card">
+        </a>
+        <a class="card" href="#entry-doors">
           <img src="img/entry-door.jpg" alt="Dark grey aluminium entry door with full-height handle and glass sidelight" loading="lazy">
           <div class="card-body">
             <b>Entry doors</b>
-            <h3>2025 system entrance door collection</h3>
-            <p>Pivot and hinged, single and double leaf</p>
-            <p>Modern, Chinese and French styles</p>
+            <h3>Cast-aluminium entrance door collection</h3>
+            <span class="card-more">View entry doors <span aria-hidden="true">&rarr;</span></span>
           </div>
-        </article>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Wazzor system -->
-  <section data-page="products" class="section soft" id="wazzor" aria-labelledby="wz-h">
+  <!-- Curtain wall page -->
+  <section data-page="curtain-wall" data-nav="products" class="split reverse" id="curtain-wall" aria-labelledby="cw-h">
+    <div class="split-media" style="background-image:url('img/curtain-wall.jpg')" role="img" aria-label="Glass curtain wall towers seen from below"></div>
+    <div class="split-body">
+      <a class="back" href="#products">&larr; All products</a>
+      <p class="eyebrow" style="color:var(--tint)">Products</p>
+      <h2 class="h2" id="cw-h">Curtain wall</h2>
+      <div class="rule"></div>
+      <p class="lead">Aluminium and steel glass curtain wall systems from 35mm minimalist profiles to 200mm structural sections, with full-frame, hidden-frame, half-hidden and thermal-break options. We provide installation and technical support for every project.</p>
+      <p style="margin-top:32px"><a class="btn" href="#contact">Request a Quote</a></p>
+    </div>
+  </section>
+
+  <section data-page="curtain-wall" data-nav="products" class="section soft" id="cw-systems" aria-labelledby="cw-sys">
+    <div class="wrap">
+      <p class="eyebrow">Curtain wall</p>
+      <h2 class="h2" id="cw-sys">Curtain wall systems</h2>
+      <div class="rule"></div>
+      <div class="sys-grid">
+          <article class="sys"><p class="size">80–200 × 65mm</p><h3>Full-frame aluminium glass curtain wall</h3><p>A modern, lightweight façade system widely used on high-rise and commercial buildings.</p><ul><li>Resists rust and UV degradation</li><li>Lighter structural load than masonry</li><li>Sleek, minimal appearance</li><li>Large glass areas with slim frames</li></ul></article>
+          <article class="sys"><p class="size">65–200 × 65mm</p><h3>Hidden-frame aluminium glass curtain wall</h3><p>The structural aluminium frame is concealed for a seamless, all-glass look, ideal where transparency comes first.</p><ul><li>Luxury hotels and resorts</li><li>Corporate offices and headquarters</li><li>High-end retail</li><li>Airports and museums</li></ul></article>
+          <article class="sys"><p class="size">80–200 × 65mm</p><h3>Half-hidden-frame aluminium glass curtain wall</h3><p>A hybrid of full-frame and hidden-frame designs: some mullions are concealed and some framing stays visible, balancing appearance, strength and cost.</p></article>
+          <article class="sys"><p class="size">100–200 × 65mm</p><h3>Thermal-break full-frame curtain wall</h3><p>Full-frame structure with added thermal insulation, for energy-efficient buildings in extreme climates.</p><ul><li>Reduced heat loss and gain</li><li>Helps prevent condensation and mould</li><li>Lower heating and cooling costs</li><li>Meets modern energy codes</li></ul></article>
+          <article class="sys"><p class="size">35mm</p><h3>Minimalism hidden-frame curtain wall</h3><p>Ultra-slim profiles with a frameless look, for high-end projects where transparency and minimal design matter most.</p></article>
+          <article class="sys"><p class="size">35mm</p><h3>Minimalism thermal-break full-frame curtain wall</h3><p>The best balance of ultra-slim sightlines and structural integrity.</p><ul><li>30% better thermal performance than standard 50mm systems</li><li>40% less aluminium than conventional thermal breaks</li><li>Full structural capability despite the slim profile</li></ul></article>
+          <article class="sys"><p class="size">50mm</p><h3>Thermal-break full-frame curtain wall</h3><p>Reliable thermal efficiency and structural integrity without the premium cost of ultra-slim systems.</p><ul><li>Cost-effective for mid- to high-rise buildings</li><li>Proven in extreme climates</li><li>Accessible glazing for simpler maintenance</li></ul></article>
+          <article class="sys"><p class="size">140 × 65mm</p><h3>Steelwork glass curtain wall</h3><p>Combines the strength of steel with the transparency of glass, suited to landmark projects where visual impact and technical performance both matter.</p></article>
+          <article class="sys"><p class="size">140 × 80mm</p><h3>Steelwork glass curtain wall</h3><p>The same steel-and-glass system with a deeper 80mm steel section.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section data-page="curtain-wall" data-nav="products" class="section" id="cw-more" aria-labelledby="cw-oth">
+    <div class="wrap">
+      <p class="eyebrow">Also in the range</p>
+      <h2 class="h2" id="cw-oth">Windows, doors and glass systems</h2>
+      <div class="rule"></div>
+      <div class="sys-grid">
+          <article class="sys"><p class="size">50mm series</p><h3>Aluminium casement window and door</h3><p>A dependable, cost-effective casement system for mid- to high-rise projects.</p></article>
+          <article class="sys"><p class="size">55mm series</p><h3>Thermal-break aluminium casement window and door</h3><p>Casement windows and doors with a thermal break for better insulation.</p></article>
+          <article class="sys"><p class="size">46mm series</p><h3>Aluminium floor spring door</h3><p>Commercial glass entrance doors on floor springs.</p><ul><li>Smooth, controlled movement</li><li>Heavy-duty performance</li><li>Adjustable closing speed and force</li><li>One-way or two-way opening</li></ul></article>
+          <article class="sys"><p class="size">100mm</p><h3>Glass louvres</h3><p>Adjustable glass blades for ventilation and light control.</p></article>
+          <article class="sys"><p class="size">Spider fitting</p><h3>Point-fixed glass curtain wall</h3><p>Glass panels held at their corners by stainless spider fittings for an almost frameless façade.</p></article>
+          <article class="sys"><p class="size">Glass fin</p><h3>Full glass curtain wall</h3><p>Floor-to-floor glazing supported by glass fins for maximum transparency.</p></article>
+      </div>
+      <p style="margin-top:40px"><a class="btn dark" href="#contact">Request a Quote</a></p>
+    </div>
+  </section>
+
+  <!-- Windows and doors page -->
+  <section data-page="windows-doors" data-nav="products" class="split reverse" id="windows-doors" aria-labelledby="wd-h">
+    <div class="split-media" style="background-image:url('img/french-window.jpg')" role="img" aria-label="Black arched French windows in a wood-panelled room"></div>
+    <div class="split-body">
+      <a class="back" href="#products">&larr; All products</a>
+      <p class="eyebrow" style="color:var(--tint)">Eiffel Collection</p>
+      <h2 class="h2" id="wd-h">French system windows and doors</h2>
+      <div class="rule"></div>
+      <p class="lead">French romance in the language of home. Classic arched and grilled designs in inward, outward, double-leaf and screened versions, with frame depths from 80mm to 125mm.</p>
+      <p style="margin-top:32px"><a class="btn" href="#contact">Request a Quote</a></p>
+    </div>
+  </section>
+
+  <section data-page="windows-doors" data-nav="products" class="section" id="wd-models" aria-labelledby="wd-m">
+    <div class="wrap">
+      <p class="eyebrow">Eiffel Series</p>
+      <h2 class="h2" id="wd-m">Windows and doors</h2>
+      <div class="rule"></div>
+      <div class="models">
+        <article class="model">
+          <img src="img/fr-mb80-in.jpg" alt="Three arched French windows in a warm living room" loading="lazy">
+          <div class="model-body"><h3>Eiffel MB80 French window, inward opening</h3><p class="tag">Classic inward opening, effortless elegance</p><ul><li>80mm frame depth</li><li>24mm C-type thermal strip, vertical isothermal line</li><li>Visible drainage for a dry interior</li><li>Decorative grille styles, composite assembly</li></ul></div>
+        </article>
+        <article class="model">
+          <img src="img/fr-mb80-out.jpg" alt="Pair of white arched French windows opening onto a garden" loading="lazy">
+          <div class="model-body"><h3>Eiffel MB80 French window, outward opening</h3><p class="tag">Boundless vision, embrace nature</p><ul><li>80mm frame depth</li><li>Classic French design, custom configurations</li><li>Fixed-position seals, continuous bending</li><li>Premium French hardware, smooth operation</li></ul></div>
+        </article>
+        <article class="model">
+          <img src="img/fr-ms100-in.jpg" alt="Two white arched double-leaf windows in a bright sitting room" loading="lazy">
+          <div class="model-body"><h3>Eiffel MS100 French window, inward opening</h3><p class="tag">Double-leaf opening onto a panoramic view</p><ul><li>100mm frame depth</li><li>44mm ultra-wide thermal strip</li><li>Visible drainage with zero backflow</li><li>Premium French hardware, smooth operation</li></ul></div>
+        </article>
+        <article class="model">
+          <img src="img/fr-ms25-screen.jpg" alt="Black arched windows in a wood-panelled library" loading="lazy">
+          <div class="model-body"><h3>Eiffel MS25 integrated French window and screen</h3><p class="tag">A breeze in every frame</p><ul><li>125mm frame depth</li><li>Seamlessly welded indoor glazing bead</li><li>Stainless steel insect and dust screen</li><li>Premium French hardware, smooth operation</li></ul></div>
+        </article>
+        <article class="model">
+          <img src="img/fr-mb80-door.jpg" alt="White arched French casement door opening to a garden" loading="lazy">
+          <div class="model-body"><h3>Eiffel MB80 French casement door</h3><p class="tag">A door to cherish</p><ul><li>80mm frame depth</li><li>Inward, outward or double-opening</li><li>24mm C-type thermal strip, triple seals</li><li>Bespoke premium hardware</li></ul></div>
+        </article>
+        <article class="model">
+          <img src="img/fr-ms25-door.jpg" alt="Black arched French entry door with glass panels" loading="lazy">
+          <div class="model-body"><h3>Eiffel MS25 outward-opening French door</h3><p class="tag">A seamless link between inside and out</p><ul><li>125mm frame depth</li><li>44mm ultra-wide thermal strip, triple seals</li><li>Decorative grille styles</li><li>Bespoke premium hardware</li></ul></div>
+        </article>
+      </div>
+      <p class="note" style="font-size:14px; margin-top:24px">Grille styles: triangular, flat and large. See the <a href="#eiffel">Eiffel Series</a> for the four core pillars and opening size limits.</p>
+    </div>
+  </section>
+
+  <!-- System windows -->
+  <section data-page="windows-doors" data-nav="products" class="section soft" id="system-windows" aria-labelledby="wz-h">
     <div class="wrap">
       <div class="wz-head">
         <div>
-          <p class="eyebrow">Wazzor system windows and doors</p>
+          <p class="eyebrow">System windows and doors</p>
           <h2 class="h2" id="wz-h">Engineered in Every Detail</h2>
         </div>
         <p class="lead wz-lead">6060-T6 European-standard aluminium profiles and 20 production processes, built around five systems: aesthetics, sound insulation, energy saving, waterproofing and security.</p>
@@ -415,15 +554,15 @@ section[id] { scroll-margin-top: 84px; }
         <div class="wz-side">
           <img class="wz-photo" src="img/wz-window.jpg" alt="Living room with a large dark-framed window and integrated screen" loading="lazy">
           <table class="wz-models">
-            <thead><tr><th scope="col">Model</th><th scope="col">Type</th><th scope="col">Key spec</th></tr></thead>
+            <thead><tr><th scope="col">Type</th><th scope="col">Key spec</th></tr></thead>
             <tbody>
-              <tr><td>WAZ 102 IPW</td><td>Passive window</td><td>K 0.8, triple glazed</td></tr>
-              <tr><td>WAZ 77 IW</td><td>Tilt and turn</td><td>K 1.4, 39mm strip</td></tr>
-              <tr><td>WAZ 65 HS</td><td>Hidden sash</td><td>K 1.8</td></tr>
-              <tr><td>WAZ 103 OWS</td><td>Out-opening + screen</td><td>K 1.9, 80 kg sash</td></tr>
-              <tr><td>WAZ 48 SW</td><td>Sliding window</td><td>K 2.2, 120 kg sash</td></tr>
-              <tr><td>WAZ 103 HUW</td><td>Electric exterior-hung</td><td>6 × 1.5 m, 450 kg</td></tr>
-              <tr><td>WAZ 110 RSD</td><td>Electric pivot door</td><td>500 kg leaf</td></tr>
+              <tr><td>Passive window</td><td>K 0.8, triple glazed</td></tr>
+              <tr><td>Tilt and turn</td><td>K 1.4, 39mm strip</td></tr>
+              <tr><td>Hidden sash</td><td>K 1.8</td></tr>
+              <tr><td>Out-opening + screen</td><td>K 1.9, 80 kg sash</td></tr>
+              <tr><td>Sliding window</td><td>K 2.2, 120 kg sash</td></tr>
+              <tr><td>Electric exterior-hung</td><td>6 × 1.5 m, 450 kg</td></tr>
+              <tr><td>Electric pivot door</td><td>500 kg leaf</td></tr>
             </tbody>
           </table>
           <p class="note">K in W/(m²·K). All window models rated wind pressure level 9 and watertightness level 6.</p>
@@ -433,9 +572,10 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- Feature: custom entry doors -->
-  <section data-page="products" class="split reverse" id="doors" aria-labelledby="custom">
+  <section data-page="entry-doors" data-nav="products" class="split reverse" id="entry-doors" aria-labelledby="custom">
     <div class="split-media" style="background-image:url('img/pivot-door.jpg')" role="img" aria-label="Black pivot entry door, model M-25001, opening into a living room"></div>
     <div class="split-body">
+      <a class="back" href="#products">&larr; All products</a>
       <p class="eyebrow" id="m-25001" style="color:var(--tint); scroll-margin-top: 120px">Model M-25001</p>
       <h2 class="h2" id="custom">Custom entry doors</h2>
       <div class="rule"></div>
@@ -444,29 +584,51 @@ section[id] { scroll-margin-top: 84px; }
     </div>
   </section>
 
-  <!-- System range -->
-  <section data-page="products" class="section soft" id="system-range" aria-labelledby="range">
+  <section data-page="entry-doors" data-nav="products" class="section" id="door-system" aria-labelledby="ds-h">
     <div class="wrap">
-      <p class="eyebrow">Curtain walls</p>
-      <h2 class="h2" id="range">System range</h2>
+      <p class="eyebrow">Inside every door</p>
+      <h2 class="h2" id="ds-h">Door leaf structural system</h2>
       <div class="rule"></div>
-      <ul class="range">
-        <li><span>Full-frame aluminium glass curtain wall</span><span>80–200×65mm</span></li>
-        <li><span>Hidden-frame aluminium glass curtain wall</span><span>65–200×65mm</span></li>
-        <li><span>Half-hidden-frame aluminium glass curtain wall</span><span>80–200×65mm</span></li>
-        <li><span>Thermal-break full-frame curtain wall</span><span>100–200×65mm</span></li>
-        <li><span>Minimalism hidden-frame curtain wall</span><span>35mm</span></li>
-        <li><span>Minimalism thermal-break full-frame curtain wall</span><span>35mm</span></li>
-        <li><span>Thermal-break full-frame curtain wall</span><span>50mm</span></li>
-        <li><span>Steelwork glass curtain wall</span><span>140×65mm</span></li>
-        <li><span>Steelwork glass curtain wall</span><span>140×80mm</span></li>
-        <li><span>Aluminium casement window and door</span><span>50mm series</span></li>
-        <li><span>Thermal-break aluminium casement window and door</span><span>55mm series</span></li>
-        <li><span>Aluminium floor spring door</span><span>46mm series</span></li>
-        <li><span>Glass louvres</span><span>100mm</span></li>
-        <li><span>Point-fixed glass curtain wall</span><span>Spider fitting</span></li>
-        <li><span>Full glass curtain wall</span><span>Glass fin</span></li>
-      </ul>
+      <div class="layers">
+        <img src="img/ed-layers.jpg" alt="Exploded view of a door leaf: inner panel, thermal-break frames, foam core and outer panel" loading="lazy">
+        <ol class="points">
+          <li><div><b>Polyurethane foam core</b><span>Water-blown, fluorine-free foam that is fire-resistant and flame-retardant, and unaffected by damp weather.</span></div></li>
+          <li><div><b>6060-T66 aluminium profiles</b><span>Extra-hard European-standard aluminium that stays stable and resists deformation for long, safe use.</span></div></li>
+          <li><div><b>PA66 nylon thermal break</b><span>Frames with nylon insulating strips that resist corrosion and ageing, for a tight seal and high insulation.</span></div></li>
+          <li><div><b>Your choice of faces</b><span>Inner and outer panels in steel, aluminium, stone, glass or wood.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section data-page="entry-doors" data-nav="products" class="section soft" id="door-collection" aria-labelledby="dc-h">
+    <div class="wrap">
+      <p class="eyebrow">Modern and French styles</p>
+      <h2 class="h2" id="dc-h">The collection</h2>
+      <div class="rule"></div>
+      <div class="door-gallery">
+        <figure><img src="img/ed-m25003.jpg" alt="Tall black pivot door on a white modern house" loading="lazy"><figcaption><b>M-25003</b>Modern, aluminium pivot</figcaption></figure>
+        <figure><img src="img/ed-m25004.jpg" alt="Black pivot door with hexagon relief panel and glass side" loading="lazy"><figcaption><b>M-25004</b>Modern, aluminium pivot</figcaption></figure>
+        <figure><img src="img/ed-m25016.jpg" alt="Dark green door with long pull handle and frosted sidelight at night" loading="lazy"><figcaption><b>M-25016</b>Modern, LED-lit handle</figcaption></figure>
+        <figure><img src="img/ed-m25017.jpg" alt="Charcoal door with vertical fluting and blue light strip" loading="lazy"><figcaption><b>M-25017</b>Modern, aluminium glass door</figcaption></figure>
+        <figure><img src="img/ed-m25023.jpg" alt="Floor-to-ceiling blue-grey pivot door with glass side panel" loading="lazy"><figcaption><b>M-25023</b>Modern, aluminium glass door</figcaption></figure>
+        <figure><img src="img/ed-m25024.jpg" alt="Red horizontal-panel door with smart lock and sidelight" loading="lazy"><figcaption><b>M-25024</b>Modern, aluminium glass door</figcaption></figure>
+        <figure><img src="img/ed-m25025.jpg" alt="Fluted charcoal door between two frosted sidelights" loading="lazy"><figcaption><b>M-25025</b>Modern, aluminium glass door</figcaption></figure>
+        <figure><img src="img/ed-m25041.jpg" alt="Dark grey flush door with slim sidelight and smart lock" loading="lazy"><figcaption><b>M-25041</b>Modern, thermal-break</figcaption></figure>
+        <figure><img src="img/ed-m25083.jpg" alt="Black double door with arched transom and brass knobs" loading="lazy"><figcaption><b>M-25083</b>French, thermal-break</figcaption></figure>
+        <figure><img src="img/ed-m25084.jpg" alt="Black arched double door with ornamental glass" loading="lazy"><figcaption><b>M-25084</b>French, thermal-break</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-page="entry-doors" data-nav="products" class="split" id="door-custom" aria-labelledby="dcu-h">
+    <div class="split-media" style="background-image:url('img/ed-lock.jpg')" role="img" aria-label="Edge of a door showing a multi-point lock and keypad smart lock"></div>
+    <div class="split-body">
+      <p class="eyebrow" style="color:var(--tint)">Custom made</p>
+      <h2 class="h2" id="dcu-h">Made around your ideas</h2>
+      <div class="rule"></div>
+      <p class="lead">We understand what you expect from your front door and work to bring your concept, taste and personality into it. Add smart locks with face recognition, fingerprint, card, code or remote unlocking, video doorbells, multi-point locking and full-height pull handles with built-in lighting.</p>
+      <p style="margin-top:32px"><a class="btn" href="#contact">Request a Quote</a></p>
     </div>
   </section>
 
@@ -599,11 +761,12 @@ section[id] { scroll-margin-top: 84px; }
     var holder = target && target.closest('section[data-page]');
     var page = holder ? holder.getAttribute('data-page') : 'home';
     sections.forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-page') === page); });
+    var first = document.querySelector('main > section[data-page="' + page + '"]');
+    var nav = (first && first.getAttribute('data-nav')) || page;
     tabs.forEach(function (t) {
-      if (t.getAttribute('data-tab') === page) t.setAttribute('aria-current', 'page');
+      if (t.getAttribute('data-tab') === nav) t.setAttribute('aria-current', 'page');
       else t.removeAttribute('aria-current');
     });
-    var first = document.querySelector('main > section[data-page="' + page + '"]');
     setTimeout(function () {
       if (target && holder && target !== first) {
         target.scrollIntoView({ behavior: 'instant', block: 'start' });
