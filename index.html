@@ -291,6 +291,15 @@ section[id] { scroll-margin-top: 84px; }
 .value-no { font-family: var(--serif); font-size: 15px; color: var(--tan-text); font-variant-numeric: lining-nums; }
 .value h3 { margin: 0; font-family: var(--serif); font-variation-settings: "SOFT" 50, "opsz" 48; font-size: 26px; font-weight: 400; line-height: 1.2; }
 .value p { margin: 0; color: var(--muted); }
+.sectors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.sector { display: flex; flex-direction: column; min-width: 0; background: var(--card); border: 1px solid var(--line); }
+.sector img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.sector-body { display: grid; gap: 12px; align-content: start; flex: 1; padding: 26px 28px 30px; }
+.sector-body .eyebrow { margin: 0; color: var(--tan-text); }
+.sector-body h3 { margin: 0; font-family: var(--serif); font-variation-settings: "SOFT" 50, "opsz" 48; font-size: 28px; font-weight: 400; line-height: 1.2; }
+.sector-body p { margin: 0; color: var(--muted); }
+.sector-body ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; color: var(--muted); font-size: 15px; }
+.sector-body .text-link { margin-top: 6px; padding-bottom: 0; }
 .cta { background: var(--quote-bg); text-align: center; }
 .cta .eyebrow { color: var(--tan-text); }
 .cta .h2 { max-width: 24ch; margin-inline: auto; }
@@ -301,6 +310,7 @@ section[id] { scroll-margin-top: 84px; }
 @media (max-width: 900px) {
   .values { grid-template-columns: 1fr; }
   .front-hero { min-height: 0; }
+  .sectors { grid-template-columns: 1fr; }
 }
 
 /* Product pages */
@@ -402,6 +412,75 @@ a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px
           <span class="value-no">03</span>
           <h3>Support to the end</h3>
           <p>From drawings to installation, our team provides technical support for each project.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-page="front" class="section soft" id="front-care" aria-labelledby="fcare-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What we care about</p>
+          <h2 class="h2" id="fcare-h">Quality that works everywhere</h2>
+        </div>
+      </div>
+      <div class="rule"></div>
+      <div class="values">
+        <article class="value">
+          <span class="value-no">01</span>
+          <h3>Comfort in every season</h3>
+          <p>Thermal-break frames and tight seals keep living rooms and workplaces quiet, warm and comfortable all year.</p>
+        </article>
+        <article class="value">
+          <span class="value-no">02</span>
+          <h3>Made to fit every project</h3>
+          <p>From a single window to a full façade, each opening is made to measure in the shapes, glass and finishes your space calls for.</p>
+        </article>
+        <article class="value">
+          <span class="value-no">03</span>
+          <h3>Built to perform</h3>
+          <p>Strong aluminium profiles, wind and water resistance and premium hardware stand up to family life and busy commercial use alike.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-page="front" class="section" id="front-sectors" aria-labelledby="fs-h">
+    <div class="wrap">
+      <p class="eyebrow">Two fields, one standard</p>
+      <h2 class="h2" id="fs-h">For homes and for business</h2>
+      <div class="rule"></div>
+      <div class="sectors">
+        <article class="sector">
+          <img src="img/fr-mb80-in.jpg" alt="Three arched French windows in a warm living room" loading="lazy">
+          <div class="sector-body">
+            <p class="eyebrow">Residential</p>
+            <h3>Rooms that feel like home</h3>
+            <p>Quiet, light-filled rooms and a front door that welcomes your guests.</p>
+            <ul>
+              <li>French windows and doors, with integrated screens</li>
+              <li>Custom entry doors with smart locks</li>
+              <li>Year-round thermal comfort</li>
+              <li>Made for renovations and new builds</li>
+            </ul>
+            <a class="text-link" href="#windows-doors">Windows and doors for the home <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+        <article class="sector">
+          <img src="img/hero.jpg" alt="Glass curtain wall on a modern office building" loading="lazy">
+          <div class="sector-body">
+            <p class="eyebrow">Commercial</p>
+            <h3>Buildings that work hard</h3>
+            <p>Façades and entrances built for daily traffic, energy codes and long service.</p>
+            <ul>
+              <li>Curtain walls from 35mm to 200mm series</li>
+              <li>Floor spring doors for busy entrances</li>
+              <li>Thermal-break systems for energy efficiency</li>
+              <li>Installation and technical support</li>
+            </ul>
+            <a class="text-link" href="#curtain-wall">Curtain wall systems <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </article>
       </div>
     </div>
