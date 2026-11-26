@@ -100,6 +100,25 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .nav a { font-size: 16px; font-weight: 400; text-decoration: none; padding-block: 4px; border-bottom: 1px solid transparent; color: var(--muted); }
 .nav a:hover { border-color: var(--accent); color: var(--fg); }
 .nav a[aria-current="page"] { border-color: var(--accent); color: var(--fg); }
+/* Products dropdown */
+.nav-drop { position: relative; display: flex; align-items: center; gap: 2px; }
+.drop-btn { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.drop-btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; transition: transform .2s; }
+.drop-btn:hover { color: var(--fg); }
+.drop-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.drop-menu {
+  position: absolute; top: 100%; left: -16px; z-index: 20; min-width: 190px; margin: 0; padding: 8px 0; list-style: none;
+  background: var(--bg); border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(17,32,47,.12);
+  opacity: 0; visibility: hidden; transform: translateY(4px); transition: opacity .15s, transform .15s, visibility .15s;
+}
+.nav .drop-menu a { display: block; padding: 10px 16px; border: 0; white-space: nowrap; }
+.nav .drop-menu a:hover, .nav .drop-menu a:focus-visible { background: var(--soft); color: var(--fg); }
+.nav-drop.open .drop-menu { opacity: 1; visibility: visible; transform: none; }
+.nav-drop.open .drop-btn svg { transform: rotate(180deg); }
+@media (hover: hover) {
+  .nav-drop:hover .drop-menu { opacity: 1; visibility: visible; transform: none; }
+  .nav-drop:hover .drop-btn svg { transform: rotate(180deg); }
+}
 html.paged main > section[data-page]:not(.is-active) { display: none; }
 
 /* 1. Hero / Why work with us */
@@ -367,7 +386,14 @@ a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px
     <a class="logo" href="#top" data-tab="front" aria-label="1989 Windows and Doors, home"><span class="logo-img" role="img" aria-label="1989 Windows and Doors"></span></a>
     <nav class="nav" aria-label="Main">
       <a href="#about" data-tab="about">About</a>
-      <a href="#products" data-tab="products">Products</a>
+      <div class="nav-drop">
+        <a href="#products" data-tab="products">Products</a>
+        <button class="drop-btn" type="button" aria-expanded="false" aria-controls="products-menu" aria-label="Show product menu"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></button>
+        <ul class="drop-menu" id="products-menu">
+          <li><a href="#windows-doors">Our Windows</a></li>
+          <li><a href="#entry-doors">Our Doors</a></li>
+        </ul>
+      </div>
       <a href="#showroom" data-tab="showroom">Our Showroom</a>
       <a href="#contact" data-tab="contact">Contact</a>
     </nav>
@@ -938,6 +964,20 @@ a.card:hover .card-more { text-decoration: underline; text-underline-offset: 4px
     if (!email.value.trim() || !email.checkValidity()) { status.textContent = 'Enter a valid email address.'; email.focus(); return; }
     status.textContent = 'This preview form does not send requests yet. Once the site is live, quote requests will go to the team.';
   });
+})();
+</script>
+<script>
+/* Products dropdown: hover on desktop, tap the arrow on touch screens. */
+(function () {
+  var drop = document.querySelector('.nav-drop');
+  if (!drop) return;
+  var btn = drop.querySelector('.drop-btn');
+  function setOpen(open) { drop.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!drop.classList.contains('open')); });
+  drop.querySelectorAll('.drop-menu a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+  document.addEventListener('click', function (e) { if (!drop.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drop.classList.contains('open')) { setOpen(false); btn.focus(); } });
+  drop.addEventListener('focusout', function (e) { if (!drop.contains(e.relatedTarget)) setOpen(false); });
 })();
 </script>
 <script>
